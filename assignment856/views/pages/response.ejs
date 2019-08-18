@@ -1,0 +1,56 @@
+<body>
+    
+        <h1 class="text-center"> BMI calculator</h1>
+        <div class="container">
+        <form method="POST" action="/bmiapi" style="background:rgb(131, 210, 230)">
+          <div class="form-group" >
+                <label for="exampleInputEmail1">Height in metres:</label>
+                <input type="text" class="form-control" id="height" name="height" aria-describedby="emailHelp" placeholder="Example: (1.7 metres)">
+          </div>
+          <div class="form-group">
+                <label for="Weight">Weight in Kilograms:</label>
+                <input type="text" class="form-control" id="weight" name="weight" placeholder="Example: (70 kgs)">
+          </div>
+          <div class="text-center">
+                <button type="submit" class="btn btn-dark" >Calculate BMI</button>
+        </div>
+        </form>
+    <!-- Display result in green   -->
+    <% if (result > 18 && result > 0)  { %>
+        <div class = " card-green">
+            <div class="card-body">
+              <h5 style="text-align: center;" class="card-title"> YOUR BMI IS :
+              <p class="card-text"> <%= result %> </p>
+            </div>
+        </div> 
+        <% } %>
+    <!-- Display result in red if bmi less than 18 -->
+        <% if (result < 18 && result >= 0) { %>
+        <div class = " card-red">
+                <div class="card-body">
+                  <h5 style="text-align: center;" class="card-title"> YOUR BMI IS :
+                  <p class="card-text"> <%= result %> </p>
+                </div>
+            </div> 
+        <% } %>
+      
+      <!-- if the input is wrong, string input  -->
+      
+        
+    <% if (result  == -2 ) { %>
+        <div class = " card-red">
+                <div class="card-body">
+                  <h5 style="text-align: center;" class="card-title"> Please enter only positive number values for height and weight !
+                </div>
+            </div> 
+        <% } %>
+        <!-- if the input is wrong, string input  -->
+      <% if (result  == -1 ) { %>
+        <div class = " card-red">
+                <div class="card-body">
+                  <h5 style="text-align: center;" class="card-title"> Please enter only positive numbers for height and weight!
+                </div>
+            </div> 
+        <% } %>
+    </div>
+    
